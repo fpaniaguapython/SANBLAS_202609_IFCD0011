@@ -1,0 +1,6 @@
+len
+print
+type
+abs
+open
+input
