@@ -1,13 +1,15 @@
 def calculate_bmi(weight : float, height : float) -> float:
-    '''
-    Calcula el índice de masa corporal (IMC)
+    """Calculate the Body Mass Index (BMI).
 
-    Params:
-    - weight : Peso expresado en kilogramos.
-    - height: Altura expresada en metros.
+    The BMI is calculated by dividing the person's weight in kilograms
+    by the square of their height in meters.
 
-    Return:
-    - Devuelve el IMC según la tabla de la OMS
-    '''
-    imc = weight / (height ** 2)
-    return imc
+    Args:
+        weight: Weight in kilograms.
+        height: Height in meters.
+
+    Returns:
+        The calculated Body Mass Index (BMI).
+    """
+    bmi = weight / (height ** 2)
+    return bmi
