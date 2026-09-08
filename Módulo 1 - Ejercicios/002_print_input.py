@@ -1,4 +1,4 @@
-MAYORIA_EDAD = 18
+MAYORIA_EDAD = 18 # ¡HARDCODE NO!
 
 print('José_Luis','Gema','Antonio', sep='*', end='loquesea')
 print('a continuación')
