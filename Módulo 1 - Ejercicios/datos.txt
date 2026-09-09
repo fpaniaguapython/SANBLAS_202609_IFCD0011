@@ -1,0 +1,24 @@
+ El volumen de la unidad C no tiene etiqueta.
+ El n£mero de serie del volumen es: 0675-8D6B
+
+ Directorio de C:\Users\ProfesorTarde\Desktop\SANBLAS_202609_IFCD0011\M¢dulo 1 - Ejercicios
+
+09/09/2026  19:15    <DIR>          .
+08/09/2026  16:11    <DIR>          ..
+08/09/2026  16:09               677 001_importacion.py
+08/09/2026  17:12               376 002_print_input.py
+08/09/2026  17:33               697 003_ejercicio_input.py
+08/09/2026  19:36               924 004_ejercicio_calculadora_imc.py
+09/09/2026  17:41               744 005_cadenas.py
+09/09/2026  16:53               800 006_censurador.py
+09/09/2026  17:27               537 007_conversor.py
+09/09/2026  18:47               524 008_quijote.py
+08/09/2026  20:46    <DIR>          calculadoras
+08/09/2026  19:14               432 calculadora_imc.py
+09/09/2026  19:15                 0 datos.txt
+09/09/2026  15:43         1.060.259 el_quijote.txt
+07/09/2026  17:41             1.618 encuesta.csv
+07/09/2026  20:56            47.014 SANBLAS_202609_001_demo.ipynb
+08/09/2026  19:29    <DIR>          __pycache__
+              13 archivos      1.114.602 bytes
+               4 dirs  686.086.098.944 bytes libres
