@@ -7,4 +7,14 @@
 # - Tiene dígitos numéricos
 # - Tiene caracteres
 # - Tiene caracteres especiales (#, @, $)
-# - No coincide con ninguna palabra del diccionario español
+# - No contiene ninguna palabra del diccionario español
+import re
+
+dni = input('Introduce tu DNI:')
+
+# fullmatch devuelve un objeto si el texto encaja POR COMPLETO
+# con la expresión regular 
+if re.fullmatch(r"\d{8}[A-Za-z]", dni):
+    print("DNI correcto")
+else:
+    print("DNI incorrecto")
