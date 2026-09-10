@@ -17,8 +17,7 @@ def verificar_fichero(cadena : str) -> bool:
     #     '.png') or cadena.endswith('.gif'):
     if (cadena.endswith(('.jpg','.png','.gif'))):
         return True
-    else:
-        return False
+    return False
 
 nombre_fichero = input('Nombre de fichero:')
 resultado = verificar_fichero(nombre_fichero)
