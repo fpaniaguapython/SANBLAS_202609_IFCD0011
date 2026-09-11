@@ -43,15 +43,47 @@ def guardar_contrasenya(identificador : str, contrasenya : str) -> None:
     with open(identificador.replace('@','_'), mode='wt', encoding='utf-8') as fichero:
         fichero.write(contrasenya)
 
-identificador = input('Introduce tu email:')
-identificador = identificador.strip().lower()
-es_identificador_valido = verificar_identificador(identificador)
-if es_identificador_valido:
-    password = getpass.getpass('Introduce tu contraseña:')
-    es_password_valida = verificar_contrasenya(password)
-    if es_password_valida:
-        guardar_contrasenya(identificador, password)
-    else:
-        print('La contraseña no es válida')
-else:
-    print('El identificador no es un correo electrónico válido')
+def leer_contrasenya(identificador : str) -> str:
+    nombre_fichero = identificador.replace('@','_')
+    with open(nombre_fichero, mode='rt', encoding='utf-8') as fichero:
+            contrasenya = fichero.read().strip()
+    return contrasenya
+
+print('1. Registrar usuario')
+print('2. Validar usuario')
+print('3. Salir')
+opcion = 0
+while (opcion!=3):
+    opcion = int(input('Introduce una opción:'))
+    if opcion==1:
+        ##################################################
+        # REGISTRO DE USUARIOS
+        ##################################################
+        identificador = input('Introduce tu email:')
+        identificador = identificador.strip().lower()
+        es_identificador_valido = verificar_identificador(identificador)
+        if es_identificador_valido:
+            password = getpass.getpass('Introduce tu contraseña:', echo_char='*')
+            es_password_valida = verificar_contrasenya(password)
+            if es_password_valida:
+                guardar_contrasenya(identificador, password)
+            else:
+                print('La contraseña no es válida')
+        else:
+            print('El identificador no es un correo electrónico válido')
+    elif opcion==2:
+        ##################################################
+        # VALIDACIÓN DE USUARIOS
+        ##################################################
+        identificador = input('Introduce tu email:')
+        password = getpass.getpass(prompt='Introduce la contraseña:', echo_char='*')
+        password_almacenada = leer_contrasenya(identificador)
+        if password==password_almacenada:
+            print('OK')
+        else:
+            print('Contraseña incorrecta')
+
+
+
+        
+        
