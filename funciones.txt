@@ -4,5 +4,8 @@ type
 abs
 open
 input
+
 int
 float
+bool
+str
