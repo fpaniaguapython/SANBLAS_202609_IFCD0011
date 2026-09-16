@@ -17,3 +17,4 @@ dict
 
 range
 next (permite leer y avanzar en un iterador)
+round (sirve para redondear decimales)

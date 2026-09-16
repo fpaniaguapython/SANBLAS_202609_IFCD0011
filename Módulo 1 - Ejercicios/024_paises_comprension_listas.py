@@ -15,3 +15,16 @@ paises_eur = [
 # Nombre del país
 # Densidad de Habitantes por km^2
 # PIB/habitante
+
+paises = [(pais[0], round(pais[1]/pais[3],1), int(pais[2]/pais[1])) 
+          for pais in paises_eur]
+print(paises)
+
+paises_densos = [(pais[0], round(pais[1]/pais[3],1), int(pais[2]/pais[1])) 
+          for pais in paises_eur if round(pais[1]/pais[3],1)>100]
+print(paises_densos)
+
+paises_todos = [(pais[0], round(pais[1]/pais[3],1), int(pais[2]/pais[1])) 
+                if round(pais[1]/pais[3],1)>100 else (pais[0],'DESPOBLADO')
+                for pais in paises_eur]
+print(paises_todos)
