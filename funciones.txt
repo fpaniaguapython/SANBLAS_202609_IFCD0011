@@ -16,3 +16,4 @@ set
 dict
 
 range
+next (permite leer y avanzar en un iterador)
