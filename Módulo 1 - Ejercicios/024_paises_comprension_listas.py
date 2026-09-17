@@ -25,6 +25,6 @@ paises_densos = [(pais[0], round(pais[1]/pais[3],1), int(pais[2]/pais[1]))
 print(paises_densos)
 
 paises_todos = [(pais[0], round(pais[1]/pais[3],1), int(pais[2]/pais[1])) 
-                if round(pais[1]/pais[3],1)>100 else (pais[0],'DESPOBLADO')
+                if round(pais[1]/pais[3],1)>100 else (pais[0],'DESPOBLADO', int(pais[2]/pais[1]))
                 for pais in paises_eur]
 print(paises_todos)
