@@ -11,4 +11,5 @@ Crear los métodos siguiente:
 - Comprobar que todos los atributos tienen valro (no son None)
 - Escribir los datos de la ficha en un fichero de texto.
 - Escribir los datos de la ficha en un fichero json.
+- Escribir la ficha en un fichero pdf.
 """
