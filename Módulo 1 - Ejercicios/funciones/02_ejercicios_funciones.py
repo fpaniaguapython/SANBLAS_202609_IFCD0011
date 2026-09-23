@@ -10,3 +10,13 @@ El segundo número tiene el valor por defecto de 10.
 7. Función que calcula el área de una circunferencia.
 8. Función que calcula el área de un rectángulo.
 '''
+
+#Función 5
+def obtener_maximo(*numeros) -> int:
+    return max(numeros)
+
+maximo = obtener_maximo(
+    1, 30, 4, 8, 3, 5, 1, 7, 12, 25, 9, 16, 2, 18, 6, 11,
+    22, 14, 29, 10, 15
+)
+print(f'Máximo:{maximo}')
