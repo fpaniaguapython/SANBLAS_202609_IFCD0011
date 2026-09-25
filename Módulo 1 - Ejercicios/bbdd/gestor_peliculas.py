@@ -85,6 +85,16 @@ def update(conn: sqlite3.Connection, pelicula: Pelicula) -> None:
                          pelicula.anyo_estreno, pelicula.director, pelicula.id))  
     conn.commit()
 
+def delete(conn: sqlite3.Connection, id: int) -> None:
+    if (conn==None):
+        conn = establecer_conexion()
+    # No utilizar esta forma - INYECCIÓN DE SQL
+    # sql = f'DELETE FROM peliculas WHERE id={id}'
+    sql = 'DELETE FROM peliculas WHERE id=?'
+    cursor = conn.cursor()
+    cursor.execute(sql, (id,))
+    conn.commit()
+
 def cerrar_conexion(conn: sqlite3.Connection):
     # if conn != None:
     if conn is not None:
