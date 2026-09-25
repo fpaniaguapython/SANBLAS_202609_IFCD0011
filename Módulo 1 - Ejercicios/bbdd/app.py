@@ -29,9 +29,20 @@ if __name__=='__main__':
     # print(pelicula)
 
     # Buscar por título
-    titulo = input('Introduce título:')
-    peliculas = gp.find_by_title(conn, titulo)
-    print(peliculas)
+    # titulo = input('Introduce título:')
+    # peliculas = gp.find_by_title(conn, titulo)
+    # print(peliculas)
+
+    # Actualizar película
+    id = int(input('Id:'))
+    titulo = input('Título:')
+    genero = input('Género:')
+    duracion = int(input('Duración (minutos):'))
+    anyo_estreno = int(input('Año de estreno:'))
+    director = input('Director:')
+    pelicula = Pelicula(id, titulo, genero, 
+                        duracion, anyo_estreno, director)
+    gp.update(conn, pelicula)
 
     # Cerrar conexión
     gp.cerrar_conexion(conn=conn)

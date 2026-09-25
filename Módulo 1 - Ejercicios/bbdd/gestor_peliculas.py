@@ -73,12 +73,19 @@ def find_by_title(conn: sqlite3.Connection, titulo: str) -> list:
     cursor = conn.cursor()
     cursor.execute(sql, (f'%{titulo}%',))
     peliculas = cursor.fetchall()
-    return peliculas           
+    return peliculas
 
+def update(conn: sqlite3.Connection, pelicula: Pelicula) -> None:
+    if (conn==None):
+            conn = establecer_conexion()
+    sql = '''UPDATE peliculas SET titulo=?, genero=?, duracion=?, 
+                anyo_estreno=?, director=? WHERE id=?'''
+    cursor = conn.cursor()
+    cursor.execute(sql, (pelicula.titulo, pelicula.genero, pelicula.duracion,
+                         pelicula.anyo_estreno, pelicula.director, pelicula.id))  
+    conn.commit()
 
 def cerrar_conexion(conn: sqlite3.Connection):
     # if conn != None:
     if conn is not None:
         conn.close()
-
-
