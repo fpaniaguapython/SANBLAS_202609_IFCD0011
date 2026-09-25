@@ -57,6 +57,17 @@ def read_all(conn: sqlite3.Connection) -> list:
     lista_peliculas = cursor.fetchall()
     return lista_peliculas
 
+def find_by_id(conn: sqlite3.Connection, id: int) -> tuple:
+    if (conn==None):
+        conn = establecer_conexion()
+    sql = 'SELECT * FROM peliculas WHERE id=?'
+    cursor = conn.cursor()
+    cursor.execute(sql, (id,))
+    pelicula = cursor.fetchone()
+    return pelicula
+    
+                
+
 
 def cerrar_conexion(conn: sqlite3.Connection):
     # if conn != None:

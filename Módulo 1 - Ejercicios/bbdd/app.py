@@ -18,10 +18,15 @@ if __name__=='__main__':
     #                     duracion, anyo_estreno, director)
     # gp.create(conn, pelicula)
 
-    # Consultar totas
-    peliculas = gp.read_all(conn)
-    for pelicula in peliculas:
-        print(pelicula)
+    # Consultar todas
+    # peliculas = gp.read_all(conn)
+    # for pelicula in peliculas:
+    #     print(pelicula)
+
+    # Buscar por id
+    id = int(input('Identificador de la película:'))
+    pelicula = gp.find_by_id(conn, id)
+    print(pelicula)
 
     # Cerrar conexión
     gp.cerrar_conexion(conn=conn)
