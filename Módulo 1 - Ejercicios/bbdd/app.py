@@ -1,0 +1,27 @@
+import gestor_peliculas as gp
+from pelicula import Pelicula
+
+if __name__=='__main__':
+    # Establecer conexión
+    conn = gp.establecer_conexion()
+
+    # Creación de las tablas
+    # gp.crear_tablas(conn)
+    
+    # Crear película
+    # titulo = input('Título:')
+    # genero = input('Género:')
+    # duracion = int(input('Duración (minutos):'))
+    # anyo_estreno = int(input('Año de estreno:'))
+    # director = input('Director:')
+    # pelicula = Pelicula(None, titulo, genero, 
+    #                     duracion, anyo_estreno, director)
+    # gp.create(conn, pelicula)
+
+    # Consultar totas
+    peliculas = gp.read_all(conn)
+    for pelicula in peliculas:
+        print(pelicula)
+
+    # Cerrar conexión
+    gp.cerrar_conexion(conn=conn)
