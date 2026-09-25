@@ -24,9 +24,14 @@ if __name__=='__main__':
     #     print(pelicula)
 
     # Buscar por id
-    id = int(input('Identificador de la película:'))
-    pelicula = gp.find_by_id(conn, id)
-    print(pelicula)
+    # id = int(input('Identificador de la película:'))
+    # pelicula = gp.find_by_id(conn, id)
+    # print(pelicula)
+
+    # Buscar por título
+    titulo = input('Introduce título:')
+    peliculas = gp.find_by_title(conn, titulo)
+    print(peliculas)
 
     # Cerrar conexión
     gp.cerrar_conexion(conn=conn)

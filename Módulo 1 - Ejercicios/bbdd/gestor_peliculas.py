@@ -66,7 +66,14 @@ def find_by_id(conn: sqlite3.Connection, id: int) -> tuple:
     pelicula = cursor.fetchone()
     return pelicula
     
-                
+def find_by_title(conn: sqlite3.Connection, titulo: str) -> list:
+    if (conn==None):
+        conn = establecer_conexion()
+    sql = 'SELECT * FROM peliculas WHERE titulo LIKE ?'
+    cursor = conn.cursor()
+    cursor.execute(sql, (f'%{titulo}%',))
+    peliculas = cursor.fetchall()
+    return peliculas           
 
 
 def cerrar_conexion(conn: sqlite3.Connection):
