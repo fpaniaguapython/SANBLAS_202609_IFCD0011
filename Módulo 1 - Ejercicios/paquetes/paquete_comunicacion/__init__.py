@@ -1,0 +1,2 @@
+# FICHERO DE INICIALIZACIÓN
+print('SOY EL __INIT__')
