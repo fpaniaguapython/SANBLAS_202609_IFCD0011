@@ -16,7 +16,7 @@
 
 # Ejecución
 - .\Scripts\activate.bat
-- python -m app
+- python -m app.main
 
 # Estructura principal de directorios
 - util --> Paquete con utilidades de la calculadora.
