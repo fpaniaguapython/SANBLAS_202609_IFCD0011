@@ -19,6 +19,7 @@
 - python -m app.main
 
 # Estructura principal de directorios
+- app --> Paquete principal de la calculadora.
 - util --> Paquete con utilidades de la calculadora.
 
 # Uso básico
