@@ -26,9 +26,15 @@ plt.show()
 
 # Total de Madrid
 nombre_comunidad = 'COMUNIDAD DE MADRID'
-#plt.boxplot(datos.iloc[10,1:], orientation='horizontal')
+# Opción 1: Obtención de datos por posición
+#datos_comunidad =datos.iloc[10,1:]
+#plt.boxplot(datos_comunidad, orientation='horizontal')
 
-plt.title("Total matriculaciones Madrid")
+# Opción 2: Obtención de datos por nombre de celda
+datos_comunidad = datos[datos['comunidad'] == nombre_comunidad]
+plt.boxplot(datos_comunidad.iloc[0, 1:], orientation='horizontal')
+
+plt.title(f"Total matriculaciones {nombre_comunidad}")
 plt.show()
 
 # Por meses
@@ -37,9 +43,10 @@ plt.boxplot(datos.iloc[1:,1:], orientation='horizontal')
 plt.title("Total ventas")
 plt.ylabel("CCAA")
 
+# Marcas del eje y
 plt.yticks(
-    range(12), # Posiciones
-    datos.columns[1:] # Valores
+    range(1,13), # Posiciones
+    datos.columns[1:].str[:3].str.upper().str.replace('A','@') # Valores
 )
 
 plt.show()
@@ -50,8 +57,9 @@ plt.boxplot(datos.T.iloc[1:,1:], orientation='horizontal')
 plt.title("Total matriculaciones")
 plt.ylabel("CCAA")
 
+posiciones_yticks = range(1, len(datos))
 plt.yticks(
-    range(1, len(datos.iloc[1:]) + 1), # Posiciones
+    range(1, len(datos)), # Posiciones
     datos.iloc[1:, 0] # Valores
 )
 
@@ -66,14 +74,14 @@ UMBRAL_ACUMULADO = 100_000
 
 resultado = datos[datos[datos.columns[1:]].sum(axis=1) < UMBRAL_ACUMULADO]
 
-plt.boxplot(resultado.T.iloc[1:,1:], orientation='horizontal')
+plt.boxplot(resultado.T.iloc[1:,:], orientation='horizontal')
 
 plt.title("Total matriculaciones")
 plt.ylabel("CCAA")
 
 plt.yticks(
-    range(1, len(resultado)), # Posiciones
-    resultado['comunidad'][1:] # Valores
+    range(1, len(resultado)+1), # Posiciones
+    resultado['comunidad'] # Valores
 )
 
 plt.show()
@@ -81,13 +89,14 @@ plt.show()
 # Ordenación
 
 # Por columna
-# datos.sort_values(by='comunidad', inplace=True)
+# datos.sort_values(by='comunidad', ascending=False, inplace=True)
 
-# Ordenar por acumulados
-# datos = datos.loc[datos.iloc[:, 1:].sum(axis=1).sort_values(ascending=False).index]
-
-# Ordenar por acumulados en dos pasos
+# Ordenar por acumulados en TRES pasos
 datos['acumulado'] = datos.iloc[:,1:].sum(axis=1)
-datos = datos.sort_values(by='acumulado',  ascending=False).drop(columns=['acumulado'])
+datos = datos.sort_values(by='acumulado',  ascending=False)
+#datos.drop(columns=['acumulado'], inplace=True) # Opcional, si se quiere eliminar la columna
+
+# Ordenar por acumulados en UN paso
+# datos = datos.loc[datos.iloc[:, 1:].sum(axis=1).sort_values(ascending=False).index]
 
 display(datos)
