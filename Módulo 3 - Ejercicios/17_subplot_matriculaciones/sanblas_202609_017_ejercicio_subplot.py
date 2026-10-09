@@ -16,6 +16,10 @@ print('Leyendo datos del servidor...')
 df = pd.read_csv(URL, sep=';', thousands='.')
 df.head()
 
+# Configuramos el estilo:
+plt.style.use('seaborn-v0_8')
+
+# Creando la figura y los subplots
 fig, ax = plt.subplots(2,2,figsize=(10,10))
 
 # Asignando los subplot a variables
